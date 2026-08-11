@@ -65,6 +65,10 @@ Custom case printed in PLA. See [docs/05-3d-case.md](docs/05-3d-case.md) for STL
 
 ---
 
-## License
+## Credits & License
 
-This repo contains my personal configuration and documentation only — no firmware code is included. Released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- [Pwnagotchi](https://pwnagotchi.ai) by evilsocket and contributors
+- Waveshare 2.13" e-ink HAT by Waveshare Electronics
+- 3D case designer credited in [docs/05-3d-case.md](docs/05-3d-case.md)
+
+This repo contains my personal configuration and documentation only — no firmware code is included. Documentation released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
