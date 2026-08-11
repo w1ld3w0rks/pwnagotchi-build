@@ -1,0 +1,133 @@
+# =============================================================================
+# Pwnagotchi Configuration — config.toml.example
+# Copy this file to config.toml and fill in your values.
+# DO NOT commit config.toml — it contains your name/whitelist/API keys.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# MAIN — Identity & Networking
+# -----------------------------------------------------------------------------
+
+[main]
+
+# The name your Pwnagotchi displays and uses on the grid.
+name = "pwnagotchi"
+
+# Wi-Fi networks to skip (your home network, phone hotspot, etc.).
+# These will never be captured or attacked.
+whitelist = [
+    "YourHomeSSID",
+    "YourPhoneHotspot",
+]
+
+# How often (seconds) to check for firmware updates when auto-update is enabled.
+# Lower = more frequent checks. 3600 = once per hour.
+# main.custom_plugins = "/usr/local/share/pwnagotchi/custom-plugins/"
+
+# -----------------------------------------------------------------------------
+# UI — Display Settings
+# -----------------------------------------------------------------------------
+
+[ui]
+
+[ui.display]
+# Set to waveshare_2 for the Waveshare 2.13" e-ink HAT (v2).
+# Other valid values: waveshare_27inch, papirus, inky, ...
+type = "waveshare_2"
+
+# Rotation: 0 = portrait, 180 = upside-down portrait.
+rotation = 180
+
+# Enable the display (set false only for headless/debug mode).
+enabled = true
+
+# Color mode — most e-ink displays are black/white only.
+color = "black"
+
+# -----------------------------------------------------------------------------
+# PERSONALITY — Behavior Tuning
+# -----------------------------------------------------------------------------
+
+[personality]
+
+# How many access points must be visible before pwnagotchi gets "bored" and
+# moves to the next channel. Lower = more aggressive channel hopping.
+min_rssi = -200
+
+# How many seconds to stay on a channel with no activity before moving on.
+# Lower values = faster scanning, higher = more thorough per-channel capture.
+# idle_timeout = 90
+
+# Whether pwnagotchi should reboot automatically on hang/crash.
+# Recommended: true
+# reboot_if_stuck_for = 600
+
+# Tweak these to balance between aggressive capturing and staying stealthy.
+# Defaults are sane for most home use.
+# max_inactive_scale = 2
+# excited_num_epochs = 10
+# bored_num_epochs = 15
+# sad_num_epochs = 25
+
+# -----------------------------------------------------------------------------
+# PLUGINS
+# -----------------------------------------------------------------------------
+
+[main.plugins]
+
+# --- auto-update ---
+# Automatically checks for and applies Pwnagotchi firmware updates on boot.
+[main.plugins.auto-update]
+enabled = true
+
+# --- auto_backup ---
+# Backs up /etc/pwnagotchi/config.toml and the AI brain to /root/backup/.
+# Backup is triggered after each session ends.
+[main.plugins.auto_backup]
+enabled = true
+# Path where backups are stored.
+backup_path = "/root/backup"
+# Files/dirs to include in the backup archive.
+# files = ["/root/brain.json", "/etc/pwnagotchi/config.toml"]
+
+# --- bt-tether ---
+# Enables Bluetooth/USB tethering for SSH access and internet sharing.
+# Fill in your phone's Bluetooth MAC address and IP range.
+[main.plugins.bt-tether]
+enabled = true
+# Your phone's BT MAC address (find via: hcitool scan)
+# phone-mac = "AA:BB:CC:DD:EE:FF"
+# IP address pwnagotchi will use on the BT interface.
+# ip = "192.168.44.44"
+
+# --- fix_services ---
+# Monitors bettercap and other critical services; restarts them if they crash.
+# Useful for long unattended sessions.
+[main.plugins.fix_services]
+enabled = true
+
+# --- grid ---
+# Registers your pwnagotchi on the global peer grid (pwnagotchi.ai/map/).
+# Requires internet access (via bt-tether or other means).
+[main.plugins.grid]
+enabled = true
+# The grid report endpoint — usually leave as default.
+# report.url = "https://api.pwnagotchi.ai/api/v1/unit/report"
+# Exclude your unit from the public map (keeps it registered but invisible).
+# exclude = false
+
+# --- wpa-sec ---
+# Uploads captured handshake hashes to wpa-sec.stanev.org for cracking.
+# Requires a free account — get your API key at https://wpa-sec.stanev.org
+[main.plugins.wpa-sec]
+enabled = true
+# Your wpa-sec API key.
+# api_key = "YOUR_WPA_SEC_API_KEY"
+# How often (seconds) to upload new handshakes.
+# run_every = 900
+
+# --- session-stats ---
+# Displays per-session capture statistics on the e-ink screen.
+# Shows APs seen, handshakes, peers encountered, and uptime.
+[main.plugins.session-stats]
+enabled = true

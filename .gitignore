@@ -1,0 +1,21 @@
+# Real config — contains name, whitelist, and API keys. NEVER commit this.
+config/config.toml
+
+# Log files
+*.log
+assets/logs/
+
+# macOS metadata
+.DS_Store
+
+# Editor artifacts
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Python (if any scripts are added)
+__pycache__/
+*.pyc
+*.pyo
