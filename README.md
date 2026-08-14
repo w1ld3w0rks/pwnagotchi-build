@@ -16,7 +16,7 @@ This repo tracks my Pwnagotchi setup: hardware selection, flashing, configuratio
 |-----------|---------|
 | SBC | Raspberry Pi Zero 2 W |
 | Display | Waveshare 2.13" e-ink HAT (v2) |
-| Storage | Standard 32 GB microSD card (Rabbit Labs) |
+| Storage | 32 GB microSD card ([Rabbit Labs](https://rabbit-labs.com)) |
 | Power | PiSugar 3 |
 | Case | Custom 3D-printed — see [3D Case](#3d-case) |
 
