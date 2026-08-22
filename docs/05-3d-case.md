@@ -1,5 +1,7 @@
 # 05 — 3D Case
 
+<!-- cspell:ignore Printables Thingiverse Waveshare -->
+
 ## Overview
 
 Custom 3D-printed enclosure designed for the Raspberry Pi Zero 2 W with the Waveshare 2.13" e-ink HAT. The case exposes the display, USB port, and microSD slot while protecting the board.
